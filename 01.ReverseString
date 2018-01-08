@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01.reverseString
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string normal = Console.ReadLine();
+            StringBuilder reversed = new StringBuilder();
+            
+            for (int i = normal.Length - 1; i >= 0; i--)
+            {
+                reversed.Append(normal[i]);
+            }
+            Console.WriteLine(reversed);
+        }
+    }
+}
