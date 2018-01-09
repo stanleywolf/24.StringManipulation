@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _04.Palindromes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] text = Console.ReadLine().Split(new char[] { ' ', ',', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var output = new List<string>();
+            foreach (var word in text)
+            {
+
+                var reversed = word.Reverse();
+                if (IsPalindrome(word))
+                {
+                    if (output.Contains(word))
+                    {
+                        continue;
+                    }
+                    output.Add(word);
+                }
+            }
+
+            Console.WriteLine(string.Join(", ", output.OrderBy(w => w)));
+
+        }
+
+        private static bool IsPalindrome(string word)
+        {
+            for (int i = 0; i < word.Length / 2; i++)
+            {
+                if (word[i] != word[word.Length - i - 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    
+}
